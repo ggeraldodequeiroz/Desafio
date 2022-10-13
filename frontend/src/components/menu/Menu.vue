@@ -18,7 +18,7 @@
 
 <script>
 export default {
-    name: "MenuComponent"
+    name: "Menu"
 }
 </script>
 

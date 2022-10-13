@@ -1,16 +1,19 @@
 <template>
     <div>
-        <label for="">E-mail</label> <br> 
-        <input type="text">
-        <h1>fasdfasd</h1>
-    </div>
-    
-
+        <label for="">{{label}}</label> <br> 
+        <input :placeholder="placeHolder" :type="type">
+    </div>    
 </template>
 
 <script>
 export default {
+    // eslint-disable-next-line vue/multi-word-component-names
     name: "Input",
+    props: {
+        label: { type: String, require },
+        placeHolder: { type: String },
+        type: { type: String, default: 'text' }
+    },
     data() {
         return {
         
@@ -28,6 +31,8 @@ export default {
         border: 1px solid #ddd;
         outline: none;
         border-radius: 4px;
+        border-color: var(--cor-primaria);
+        box-sizing: border-box;
         
     }
 </style>

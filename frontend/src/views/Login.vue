@@ -4,7 +4,8 @@
             <h1>Login</h1>
         </div>
 
-        <Input></Input>
+        <Input label="E-mail:" placeHolder="exemplo@gmail.com"></Input>
+        <Input label="Senha:"  placeHolder="123456" type="password"></Input>
     </div>
 </template>
 
@@ -14,11 +15,12 @@ import Input from '@/components/input/Input.vue';
 
 export default {
     name: "Login",
+    components: {
+        Input
+    },
     data(){
         return {
-            components: {
-                Input
-            }
+            
         }
     }
 }
