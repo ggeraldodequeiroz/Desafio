@@ -1,20 +1,39 @@
 <template>
     <div class="box-login">
-        <h1>Tela de Login</h1>
+        <div class="logo">
+            <h1>Login</h1>
+        </div>
+
+        <Input></Input>
     </div>
 </template>
 
 <script>
+
+import Input from '@/components/input/Input.vue';
+
 export default {
-    name: 'LoginComponent',
+    name: "Login",
     data(){
         return {
-            mensagem: 'Estou na tela dashboard'
+            components: {
+                Input
+            }
         }
     }
 }
 </script>
 
-<style>
-
+<style scoped>
+    .box-login {
+        width: 300px;
+        margin: auto;
+        border: 1px solid #ddd;
+        margin-top: 70px;
+        padding: 20px;
+    }
+    .logo {
+        text-align: center;
+        color: var(--cor-primaria);
+    }
 </style>

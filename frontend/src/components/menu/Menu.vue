@@ -1,7 +1,7 @@
 <template>
     <ul>
         <li>
-            <a @click="() => this.$router.push({path: '/dashboard'})">Dashboard</a>
+            <a @click="() => this.$router.push({path: '/'})">Dashboard</a>
         </li>
         <li>
             <a @click="() => this.$router.push({path: '/controle-de-Produtos'})">Produtos</a>
@@ -18,7 +18,7 @@
 
 <script>
 export default {
-    name: 'MenuComponent'
+    name: "MenuComponent"
 }
 </script>
 
@@ -49,5 +49,6 @@ export default {
     }
     li a:hover {
         background-color: var(--cor-secundaria);
+        cursor: pointer;
     }
 </style>

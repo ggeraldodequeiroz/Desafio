@@ -6,7 +6,7 @@
 
 <script>
 export default {
-    name: 'ControleDeClientes',
+    name: "ControleDeClientes",
     data(){
         return {
             mensagem: 'Estou na tela Controle de clientes'

@@ -6,7 +6,7 @@
 
 <script>
 export default {
-    name: 'ControleDeProdutos',
+    name: "ControleDeProdutos",
     data(){
         return {
             mensagem: 'Estou na tela Controle de produtos'

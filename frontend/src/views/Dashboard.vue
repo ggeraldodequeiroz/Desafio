@@ -6,7 +6,7 @@
 
 <script>
 export default {
-    name: 'DashboardComponent',
+    name: "Dashboard",
     data(){
         return {
             mensagem: 'Estou na tela dashboard'
