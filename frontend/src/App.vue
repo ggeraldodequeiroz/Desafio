@@ -48,6 +48,6 @@ hr {
 
 .sub-container {
   margin-top: 15px;
-}
+} 
 
 </style>

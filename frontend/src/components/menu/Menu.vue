@@ -4,7 +4,7 @@
             <a @click="() => this.$router.push({path: '/'})">Dashboard</a>
         </li>
         <li>
-            <a @click="() => this.$router.push({path: '/controle-de-Produtos'})">Produtos</a>
+            <a @click="() => this.$router.push({path: '/controle-de-produtos'})">Produtos</a>
         </li>
         <li>
             <a @click="() => this.$router.push({path: '/controle-de-clientes'})">Clientes</a>
