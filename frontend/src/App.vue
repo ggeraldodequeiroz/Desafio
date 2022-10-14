@@ -50,4 +50,10 @@ hr {
   margin-top: 15px;
 } 
 
+.titulo {
+  font-weight: 600;
+  color: #363636;
+  font-size: 25px;
+}
+
 </style>

@@ -9,7 +9,7 @@
 
         <div class="row sub-container">
             <div class="col-sm-2">
-                <Button value="Adicionar"></Button>
+                <Button :callback="adicionarProduto" value="Adicionar"></Button>
             </div>
         </div>
 
@@ -33,7 +33,10 @@
                             <td>{{ item.quantidadeEstoque }}</td>
                             <td>{{ item.valor | real}}</td>
                             <td>{{ item.dataCadastro | data }}</td>
-                            <td>Editar / Excluir</td>
+                            <td>
+                                <i @click="editarProduto" class="fas fa-pencil-alt icones-tabela"></i>
+                                <i @click="excluirProduto" class="fas fa-trash-alt icones-tabela"></i>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -69,6 +72,15 @@ export default {
         }
     },
     methods: {
+        adicionarProduto() {
+            this.$router.push({ name: "NovoProduto" });
+        },
+        editarProduto() {
+            alert('Editar produto');
+        },
+        excluirProduto() {
+            alert('Excluir produto');
+        },
         obterTodosOsProdutos() {
             produtoService.obterTodos()
             .then(response => {
@@ -88,8 +100,11 @@ export default {
 
 <style scoped>
 
-    h1 {
-        color: red;
+    .icones-tabela {
+        margin: 5px;
+        cursor: pointer;
+        color: var(--cor-primaria);
     }
 
+    
 </style>
