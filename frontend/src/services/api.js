@@ -1,17 +1,8 @@
-// import axios from "axios";
-
-// const api = axios.create({
-//     baseURL: 'http://localhost:3500'
-// });
-
-// export default api;
-
-
 import axios from "axios";
 import utilsStorage from '../utils/storage';
 
 const api = axios.create({
-    baseURL: 'http://localhost:3500'
+    baseURL: 'http://localhost:3400'
 });
 
 api.interceptors.request.use((config) => {

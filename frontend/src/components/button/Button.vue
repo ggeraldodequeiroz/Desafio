@@ -1,28 +1,23 @@
 <template>
-    <button @click="callback">{{value}}</button>
+    <div>
+        <button @click="callback"> {{value}}</button>
+    </div>
 </template>
-
 <script>
 export default {
-    name: 'Button',
-    props: {
-        value: { type: String, require },
-        callback: { type: Function, default: () => {} }
-    },
-    data() {
-        return {
-            
-        }
+    name:"Button",
+    props:{
+        value: { type: String, default: ''},
+        callback: {type: Function, default: () => {}}
     }
 }
 </script>
-
 <style scoped>
 
-    button {
+    button{
         width: 100%;
         background-color: var(--cor-primaria);
-        color: #fff;
+        color: #FFF;
         padding: 8px 20px;
         margin: 8px 0;
         border: none;
@@ -30,7 +25,7 @@ export default {
         cursor: pointer;
     }
 
-    button:hover {
+    button:hover{
         background-color: var(--cor-secundaria);
     }
 

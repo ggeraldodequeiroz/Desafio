@@ -1,14 +1,14 @@
 import api from './api';
 
-function obterTodos() {
+function obterTodos(){
     return new Promise((resolve, reject) => {
-        return api.get(`/produtos`)
+        return api.get('/produtos')
         .then(response => resolve(response))
         .catch(error => reject(error));
     });
 }
 
-function obterPorId(id) {
+function obterPorId(id){
     return new Promise((resolve, reject) => {
         return api.get(`/produtos/${id}`)
         .then(response => resolve(response))
@@ -16,7 +16,7 @@ function obterPorId(id) {
     });
 }
 
-function cadastrar(produto) {
+function cadastrar(produto){
     return new Promise((resolve, reject) => {
         return api.post(`/produtos`, produto)
         .then(response => resolve(response))
@@ -24,7 +24,7 @@ function cadastrar(produto) {
     });
 }
 
-function atualizar(produto) {
+function atualizar(produto){
     return new Promise((resolve, reject) => {
         return api.put(`/produtos/${produto.id}`, produto)
         .then(response => resolve(response))
@@ -32,7 +32,7 @@ function atualizar(produto) {
     });
 }
 
-function deletar(id) {
+function deletar(id){
     return new Promise((resolve, reject) => {
         return api.delete(`/produtos/${id}`)
         .then(response => resolve(response))

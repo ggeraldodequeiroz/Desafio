@@ -1,14 +1,14 @@
 import mascaraDeData from '../utils/conversor-data';
 export default class Produto {
-
-    constructor(obj) {
+    constructor(obj){
         obj = obj || {};
-
+        
         this.id = obj.id;
         this.nome = obj.nome;
         this.valor = obj.valor || 0;
-        this.quantidadeEstoque = obj.quantidadeEstoque;
+        this.quantidadeEstoque = obj.quantidadeEstoque || 0;
         this.dataCadastro = obj.dataCadastro && mascaraDeData.aplicarMascaraFormatoAmericanoEmDataISO(obj.dataCadastro);
+        this.observacao = obj.observacao;
     }
 
     modeloValidoParaCadastro(){
@@ -18,5 +18,4 @@ export default class Produto {
     modeloValidoParaAtualizar(){
         return !! (this.id && this.nome)
     }
-
 }
