@@ -18,6 +18,7 @@
         <table class="table table-hover">
           <thead>
             <tr>
+              <th>Código</th>
               <th>RA</th>
               <th>Nome</th>
               <th>E-mail</th>
@@ -28,6 +29,7 @@
           </thead>
           <tbody>
             <tr v-for="item in alunos" :key="item.id">
+              <td>{{ item.id }}</td>
               <td>{{ item.registroAcademico }}</td>
               <td>{{ item.nome }}</td>
               <td>{{ item.email }}</td>

@@ -31,7 +31,7 @@ let AlunoMixin = {
           this.$swal({
             icon: "question",
             title: "Deseja excluir o aluno?",
-            text: `Código: ${aluno.id} - Nome: ${aluno.nome}`,
+            text: `CPF: ${aluno.cpf} | Nome: ${aluno.nome}`,
             showCancelButton: true,
             confirmButtonColor: "#FF3D00",
             confirmButtonText: "Sim",
