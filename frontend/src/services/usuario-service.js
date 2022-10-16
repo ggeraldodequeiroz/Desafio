@@ -1,49 +1,39 @@
 import api from './api';
-
-function obterTodos() {
+function login(email, senha){
     return new Promise((resolve, reject) => {
-        return api.get(`/produtos`)
+        return api.post(`/login`, { email, senha } )
         .then(response => resolve(response))
         .catch(error => reject(error));
     });
 }
 
-function obterPorId(id) {
+function logout(){
     return new Promise((resolve, reject) => {
-        return api.get(`/produtos/${id}`)
+        return api.delete(`/logout`)
         .then(response => resolve(response))
         .catch(error => reject(error));
     });
 }
 
-function cadastrar(produto) {
+function obterTodos(){
     return new Promise((resolve, reject) => {
-        return api.post(`/produtos`, produto)
+        return api.get(`/usuarios`)
         .then(response => resolve(response))
         .catch(error => reject(error));
     });
 }
 
-function atualizar(produto) {
+function obterPorId(id){
     return new Promise((resolve, reject) => {
-        return api.put(`/produtos/${produto.id}`, produto)
-        .then(response => resolve(response))
-        .catch(error => reject(error));
-    });
-}
-
-function deletar(id) {
-    return new Promise((resolve, reject) => {
-        return api.delete(`/produtos/${id}`)
+        return api.get(`/usuarios/${id}`)
         .then(response => resolve(response))
         .catch(error => reject(error));
     });
 }
 
 export default {
+    login,
+    logout,
     obterTodos,
-    obterPorId,
-    cadastrar,
-    atualizar,
-    deletar
+    obterPorId
 }

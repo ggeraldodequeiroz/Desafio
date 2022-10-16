@@ -1,8 +1,9 @@
-import Dashboard from '@/views/Dashboard';
-import ControleDeClientes from '@/views/ControleDeClientes';
-import ControleDeProdutos from '@/views/ControleDeProdutos';
-import Produto from '@/views/Produto';
-import Login from '@/views/Login';
+import Login from '@/views/Login.vue'
+import Dashboard from '@/views/Dashboard.vue'
+import ControleDeClientes from '@/views/ControleDeClientes.vue'
+import ControleDeProdutos from '@/views/ControleDeProdutos.vue'
+import ListaProdutoCards from '@/views/ListaProdutoCards.vue'
+import Produto from '@/views/Produto.vue'
 
 const routes = [
     {
@@ -20,13 +21,6 @@ const routes = [
         meta: { requiredAuth: true }
     },
     {
-        path: '/controle-de-produtos',
-        name: 'ControleDeProdutos',
-        component: ControleDeProdutos,
-        title: 'Produtos',
-        meta: { requiredAuth: true }
-    },
-    {
         path: '/controle-de-clientes',
         name: 'ControleDeClientes',
         component: ControleDeClientes,
@@ -34,20 +28,34 @@ const routes = [
         meta: { requiredAuth: true }
     },
     {
+        path: '/controle-de-produtos',
+        name: 'ControleDeProdutos',
+        component: ControleDeProdutos,
+        title: 'Produtos',
+        meta: { requiredAuth: true }
+    },
+    {
         path: '/controle-de-produtos/novo',
         name: 'NovoProduto',
         component: Produto,
-        title: 'Adicionar Produto',
+        title: 'Adicionar produto',
         meta: { requiredAuth: true }
     },
     {
         path: '/controle-de-produtos/editar',
         name: 'EditarProduto',
         component: Produto,
-        title: 'Editar Produto',
+        title: 'Editar produto',
         meta: { requiredAuth: true }
     },
-
+    {
+        path: '/controle-de-produtos/lista-cards',
+        name: 'ListaProdutoCards',
+        component: ListaProdutoCards,
+        title: 'Lista de produtos em cards',
+        meta: { requiredAuth: true }
+    },
 ];
 
-export default routes
+
+export default routes;

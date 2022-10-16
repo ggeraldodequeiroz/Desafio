@@ -1,7 +1,7 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "Api feita como exemplo para testes com os alunos",
+  "description": "Api feita como exemplo para desafio",
   "main": "index.js",
   "scripts": {
     "start": "nodemon --inspect ./app.js",
@@ -11,7 +11,9 @@
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv": "^12.0.4",
     "express": "^4.17.1",
+    "md5": "^2.2.1",
     "nodemon": "^2.0.7"
   }
 }
