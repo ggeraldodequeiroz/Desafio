@@ -35,11 +35,11 @@
               <td>{{ item.dataCadastro | data }}</td>
               <td>
                 <i
-                  @click="editarProduto(item)"
+                  @click="editarAluno(item)"
                   class="fas fa-pencil-alt icones-tabela"
                 ></i>
                 <i
-                  @click="excluirProduto(item)"
+                  @click="excluirAluno(item)"
                   class="fas fa-trash-alt icones-tabela"
                 ></i>
               </td>

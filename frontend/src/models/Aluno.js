@@ -11,8 +11,20 @@ export default class Produto {
         this.dataCadastro = obj.dataCadastro && mascaraDeData.aplicarMascaraFormatoAmericanoEmDataISO(obj.dataCadastro);
     }
 
-    modeloValidoParaCadastro(){
+    validaNome() {
         return !!this.nome;
+    }
+
+    validaRegistroAcademico() {
+        return !!this.registroAcademico;
+    }
+
+    validaEmail() {
+        return !!this.email;
+    }
+
+    validaCpf() {
+        return !!this.cpf;
     }
 
     modeloValidoParaAtualizar(){

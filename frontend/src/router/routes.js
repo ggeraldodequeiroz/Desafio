@@ -1,7 +1,6 @@
 import Login from '@/views/Login.vue'
 import Home from '@/views/Home.vue'
 import ControleDeAlunos from '@/views/ControleDeAlunos.vue'
-import ListaProdutoCards from '@/views/ListaProdutoCards.vue'
 import Aluno from '@/views/Aluno.vue'
 
 const routes = [
@@ -35,18 +34,11 @@ const routes = [
     },
     {
         path: '/controle-de-alunos/editar',
-        name: 'EditarProduto',
+        name: 'EditarAluno',
         component: Aluno,
         title: 'Editar Aluno',
         meta: { requiredAuth: true }
-    },
-    {
-        path: '/controle-de-produtos/lista-cards',
-        name: 'ListaProdutoCards',
-        component: ListaProdutoCards,
-        title: 'Lista de produtos em cards',
-        meta: { requiredAuth: true }
-    },
+    }
 ];
 
 

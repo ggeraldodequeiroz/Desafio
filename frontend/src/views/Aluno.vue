@@ -18,7 +18,7 @@
       <div class="col-sm-3">
         <div class="form-group">
           <label for="nome">Registro Acadêmico</label>
-          <input id="nome" v-model="aluno.registroAcademico" type="text" class="form-control" />
+          <input id="nome" v-model="aluno.registroAcademico" type="text" class="form-control" :disabled="modoCadastro ? false : true" />
         </div>
       </div>
 
@@ -124,11 +124,38 @@ export default {
       this.aluno = new Aluno();
       this.$router.push({ name: "ControleDeAlunos" })
     },
-    codastrarAluno() {
-      if (!this.aluno.modeloValidoParaCadastro()) {
+    cadastrarAluno() {
+      if (!this.aluno.validaRegistroAcademico()) {
+        this.$swal({
+          icon: 'warning',
+          title: 'O Registro Acadêmico do aluno é obrigatório para o cadastro.',
+          confirmButtonColor: '#FF3D00',
+          animate: true
+        });
+        return;
+      }
+      if (!this.aluno.validaNome()) {
         this.$swal({
           icon: 'warning',
           title: 'O nome do aluno é obrigatório para o cadastro.',
+          confirmButtonColor: '#FF3D00',
+          animate: true
+        });
+        return;
+      }      
+      if (!this.aluno.validaEmail()) {
+        this.$swal({
+          icon: 'warning',
+          title: 'O e-mail do aluno é obrigatório para o cadastro.',
+          confirmButtonColor: '#FF3D00',
+          animate: true
+        });
+        return;
+      }
+      if (!this.aluno.validaCpf()) {
+        this.$swal({
+          icon: 'warning',
+          title: 'O cpf do aluno é obrigatório para o cadastro.',
           confirmButtonColor: '#FF3D00',
           animate: true
         });
@@ -200,7 +227,7 @@ export default {
     },
 
     salvarAluno() {
-      (this.modoCadastro) ? this.codastrarAluno() : this.atualizarAluno();
+      (this.modoCadastro) ? this.cadastrarAluno() : this.atualizarAluno();
     }
   }
 };
