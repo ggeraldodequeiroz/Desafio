@@ -64,7 +64,7 @@ export default {
         utilsStorage.salvarUsuarioNaStorage(this.usuario);
         utilsStorage.salvarTokenNaStorage(response.data.token);
         
-        this.$router.push({name: "ControleDeProdutos"});
+        this.$router.push({name: "ControleDeAlunos"});
       })
       .catch(error => {
         console.log(error);

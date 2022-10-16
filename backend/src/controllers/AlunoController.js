@@ -1,13 +1,13 @@
 
-const Produto = require('../model/Produto');
-const serviceProduto = require('../service/servicoProduto');
+const Aluno = require('../model/Aluno');
+const serviceAluno = require('../service/servicoAluno');
 
-module.exports = class ProdutoController {
+module.exports = class AlunoController {
     
     async obterTodos(req, res) {
         try {
-            let produtos = serviceProduto.obterTodos();
-            return res.json(produtos);
+            let alunos = serviceAluno.obterTodos();
+            return res.json(alunos);
         } catch (error) {
             console.log(error);
             return res.json({ mensagem:error.message })
@@ -18,8 +18,8 @@ module.exports = class ProdutoController {
         try {
             var id = req.params.id;
 
-            let produto = serviceProduto.obterPorId(id);
-            return res.json(produto);
+            let aluno = serviceAluno.obterPorId(id);
+            return res.json(aluno);
 
         } catch (error) {
             console.log(error);
@@ -29,8 +29,8 @@ module.exports = class ProdutoController {
 
     async cadastrar(req, res) {
         try {           
-            let produto = serviceProduto.cadastrar(req.body);
-            return res.json(produto);
+            let aluno = serviceAluno.cadastrar(req.body);
+            return res.json(aluno);
             
         } catch (error) {
             console.log(error);
@@ -41,12 +41,12 @@ module.exports = class ProdutoController {
     async atualizar(req, res) {
         try {
             var id = req.params.id;
-            var produto = req.body || {};
+            var aluno = req.body || {};
 
-            produto.id = parseInt(id);
+            aluno.id = parseInt(id);
 
-            let produtoAtualizado = serviceProduto.atualizar(produto);
-            return res.json(produtoAtualizado);
+            let alunoAtualizado = serviceAluno.atualizar(aluno);
+            return res.json(alunoAtualizado);
 
         } catch (error) {
             console.log(error);
@@ -57,8 +57,8 @@ module.exports = class ProdutoController {
     async deletar(req, res) {
         try {
             var id = req.params.id;
-            let produtoAtualizado = serviceProduto.deletar(id);
-            return res.json(produtoAtualizado);
+            let alunoAtualizado = serviceAluno.deletar(id);
+            return res.json(alunoAtualizado);
 
         } catch (error) {
             console.log(error);

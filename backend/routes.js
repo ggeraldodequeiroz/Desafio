@@ -3,12 +3,10 @@ const routes = express.Router();
 
 const usuarioService = require('./src/service/servicoUsuario');
 const UsuarioController = require('./src/controllers/UsuarioController');
-const ClienteController = require('./src/controllers/ClienteController');
-const ProdutoController = require('./src/controllers/ProdutoController');
+const AlunoController = require("./src/controllers/AlunoController");
 
 const usuarioController = new UsuarioController();
-const clienteController = new ClienteController();
-const produtoController = new ProdutoController();
+const alunoController = new AlunoController();
 
 routes.use(async (req, res, next) => {
 
@@ -25,19 +23,12 @@ routes.use(async (req, res, next) => {
     next();
 });
 
-//produto
-routes.get("/produtos", produtoController.obterTodos);
-routes.get("/produtos/:id", produtoController.obterPorId);
-routes.post('/produtos', produtoController.cadastrar);
-routes.put("/produtos/:id", produtoController.atualizar);
-routes.delete("/produtos/:id", produtoController.deletar);
-
-//cliente
-routes.get("/clientes", clienteController.obterTodos);
-routes.get("/clientes/:id", clienteController.obterPorId);
-routes.post('/clientes', clienteController.cadastrar);
-routes.put("/clientes/:id", clienteController.atualizar);
-routes.delete("/clientes/:id", clienteController.deletar);
+//aluno
+routes.get("/alunos", alunoController.obterTodos);
+routes.get("/alunos/:id", alunoController.obterPorId);
+routes.post('/alunos', alunoController.cadastrar);
+routes.put("/alunos/:id", alunoController.atualizar);
+routes.delete("/alunos/:id", alunoController.deletar);
 
 //usuario
 routes.get("/usuarios", usuarioController.obterTodos);

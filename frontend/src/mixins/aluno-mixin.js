@@ -1,9 +1,9 @@
-import produtoService from "@/services/produto-service";
-import Produto from "../models/Produto";
+import alunoService from "@/services/aluno-service";
+import Aluno from "../models/Aluno";
 import conversorMonetario from "../utils/conversor-monetario";
 import conversorDeData from "../utils/conversor-data";
 
-let ProdutoMixin = {
+let AlunoMixin = {
     filters: {
         data(data) {
           return conversorDeData.aplicarMascaraEmDataIso(data);
@@ -14,24 +14,24 @@ let ProdutoMixin = {
     },
     data(){
         return {
-            produtos: [],
+            alunos: [],
         }
     },
 
     mounted() {
-        this.obterTodosOsProdutos();
+        this.obterTodosOsAlunos();
     },
 
     methods: {    
-        editarProduto(produto) {
-          this.$router.push({ name: "EditarProduto", params: { id: produto.id } });
+        editarAluno(aluno) {
+          this.$router.push({ name: "EditarAluno", params: { id: aluno.id } });
         },
     
-        excluirProduto(produto) {
+        excluirAluno(aluno) {
           this.$swal({
             icon: "question",
-            title: "Deseja excluir o produto?",
-            text: `Código: ${produto.id} - Nome: ${produto.nome}`,
+            title: "Deseja excluir o aluno?",
+            text: `Código: ${aluno.id} - Nome: ${aluno.nome}`,
             showCancelButton: true,
             confirmButtonColor: "#FF3D00",
             confirmButtonText: "Sim",
@@ -39,15 +39,15 @@ let ProdutoMixin = {
             animate: true,
           }).then((result) => {
             if (result.isConfirmed) {
-              produtoService
-                .deletar(produto.id)
+              alunoService
+                .deletar(aluno.id)
                 .then(() => {
-                  let indice = this.produtos.findIndex((p) => p.id == produto.id);
-                  this.produtos.splice(indice, 1);
+                  let indice = this.alunos.findIndex((p) => p.id == aluno.id);
+                  this.alunos.splice(indice, 1);
     
                     this.$swal({
                       icon: 'success',
-                      title: 'Produto deletado com sucesso!',
+                      title: 'Aluno deletado com sucesso!',
                       confirmButtonColor: '#FF3D00',
                       animate: true
                     });
@@ -59,19 +59,19 @@ let ProdutoMixin = {
           });
         },
     
-        ordernarProdutos(a, b) {
+        ordernarAlunos(a, b) {
           // A < B = -1
           // A > B = 1
           // A == B = 0
           return a.id < b.id ? -1 : a.id > b.id ? 1 : 0;
         },
     
-        obterTodosOsProdutos() {
-          produtoService
+        obterTodosOsAlunos() {
+          alunoService
             .obterTodos()
             .then((response) => {
-              let produtos = response.data.map((p) => new Produto(p));
-              this.produtos = produtos.reverse();
+              let alunos = response.data.map((p) => new Aluno(p));
+              this.alunos = alunos.reverse();
             })
             .catch((error) => {
               console.log(error);
@@ -80,4 +80,4 @@ let ProdutoMixin = {
     },
 }
 
-export default ProdutoMixin;
+export default AlunoMixin;

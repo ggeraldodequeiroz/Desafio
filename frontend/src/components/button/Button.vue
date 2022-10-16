@@ -15,7 +15,7 @@ export default {
 <style scoped>
 
     button{
-        width: 100%;
+        width: 150px;
         background-color: var(--cor-primaria);
         color: #FFF;
         padding: 8px 20px;

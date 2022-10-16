@@ -34,7 +34,7 @@
 
 <script>
 import Card from "../components/card/Card.vue";
-import ProdutoMixin from "../mixins/produto-mixin";
+import ProdutoMixin from "../mixins/aluno-mixin";
 
 export default {
   name: "ListaProdutoCards",

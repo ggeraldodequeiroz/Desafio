@@ -2,17 +2,14 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-12">
-        <h2 class="titulo">Produtos</h2>
+        <h2 class="titulo">Lista de Alunos</h2>
         <hr />
       </div>
     </div>
 
     <div class="row sub-cointainer">
       <div class="col-sm-2">
-        <Button :callback="adicionarProduto" value="Adicionar"></Button>
-      </div>
-      <div class="col-sm-10">
-        <a @click="verProdutosEmCards" class="float-right ver-em-cards"> Ver em cards</a>
+        <Button :callback="adicionarAluno" value="Cadastrar"></Button>
       </div>
     </div>
 
@@ -21,20 +18,20 @@
         <table class="table table-hover">
           <thead>
             <tr>
-              <th>Código</th>
+              <th>RA</th>
               <th>Nome</th>
-              <th>Quantidade</th>
-              <th>Valor</th>
-              <th>Data de cadastro</th>
-              <th></th>
+              <th>E-mail</th>
+              <th>CPF</th>
+              <th>Data de Cadastro</th>
+              <th>Ações</th>
             </tr>
           </thead>
           <tbody>
-            <tr v-for="item in produtos" :key="item.id">
-              <td>{{ item.id }}</td>
+            <tr v-for="item in alunos" :key="item.id">
+              <td>{{ item.registroAcademico }}</td>
               <td>{{ item.nome }}</td>
-              <td>{{ item.quantidadeEstoque }}</td>
-              <td>{{ item.valor | real }}</td>
+              <td>{{ item.email }}</td>
+              <td>{{ item.cpf }}</td>
               <td>{{ item.dataCadastro | data }}</td>
               <td>
                 <i
@@ -57,10 +54,10 @@
 </template>
 <script>
 import Button from "../components/button/Button.vue";
-import ProdutoMixin from '../mixins/produto-mixin';
+import ProdutoMixin from '../mixins/aluno-mixin';
 
 export default {
-  name: "ControleDeProdutos",
+  name: "ControleDeAlunos",
   mixins:[ProdutoMixin],
   components: {
     Button,
@@ -72,12 +69,8 @@ export default {
   },
 
   methods: {
-    verProdutosEmCards(){
-      this.$router.push({ name: "ListaProdutoCards" });
-    },
-
-    adicionarProduto() {
-      this.$router.push({ name: "NovoProduto" });
+    adicionarAluno() {
+      this.$router.push({ name: "NovoAluno" });
     }
   },
 };

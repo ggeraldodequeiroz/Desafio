@@ -5,10 +5,10 @@ export default class Produto {
         
         this.id = obj.id;
         this.nome = obj.nome;
-        this.valor = obj.valor || 0;
-        this.quantidadeEstoque = obj.quantidadeEstoque || 0;
+        this.registroAcademico = obj.registroAcademico;
+        this.email = obj.email;
+        this.cpf = obj.cpf;
         this.dataCadastro = obj.dataCadastro && mascaraDeData.aplicarMascaraFormatoAmericanoEmDataISO(obj.dataCadastro);
-        this.observacao = obj.observacao;
     }
 
     modeloValidoParaCadastro(){

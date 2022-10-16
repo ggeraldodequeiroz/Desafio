@@ -2,7 +2,7 @@ import api from './api';
 
 function obterTodos(){
     return new Promise((resolve, reject) => {
-        return api.get('/produtos')
+        return api.get('/alunos')
         .then(response => resolve(response))
         .catch(error => reject(error));
     });
@@ -10,23 +10,23 @@ function obterTodos(){
 
 function obterPorId(id){
     return new Promise((resolve, reject) => {
-        return api.get(`/produtos/${id}`)
+        return api.get(`/alunos/${id}`)
         .then(response => resolve(response))
         .catch(error => reject(error));
     });
 }
 
-function cadastrar(produto){
+function cadastrar(aluno){
     return new Promise((resolve, reject) => {
-        return api.post(`/produtos`, produto)
+        return api.post(`/alunos`, aluno)
         .then(response => resolve(response))
         .catch(error => reject(error));
     });
 }
 
-function atualizar(produto){
+function atualizar(aluno){
     return new Promise((resolve, reject) => {
-        return api.put(`/produtos/${produto.id}`, produto)
+        return api.put(`/alunos/${aluno.id}`, aluno)
         .then(response => resolve(response))
         .catch(error => reject(error));
     });
@@ -34,7 +34,7 @@ function atualizar(produto){
 
 function deletar(id){
     return new Promise((resolve, reject) => {
-        return api.delete(`/produtos/${id}`)
+        return api.delete(`/alunos/${id}`)
         .then(response => resolve(response))
         .catch(error => reject(error));
     });

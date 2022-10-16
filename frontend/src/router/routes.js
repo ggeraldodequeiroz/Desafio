@@ -1,9 +1,8 @@
 import Login from '@/views/Login.vue'
-import Dashboard from '@/views/Dashboard.vue'
-import ControleDeClientes from '@/views/ControleDeClientes.vue'
-import ControleDeProdutos from '@/views/ControleDeProdutos.vue'
+import Home from '@/views/Home.vue'
+import ControleDeAlunos from '@/views/ControleDeAlunos.vue'
 import ListaProdutoCards from '@/views/ListaProdutoCards.vue'
-import Produto from '@/views/Produto.vue'
+import Aluno from '@/views/Aluno.vue'
 
 const routes = [
     {
@@ -15,37 +14,30 @@ const routes = [
     },
     {
         path: '/',
-        name: 'Dashboard',
-        component: Dashboard,
-        title: 'Dashboard',
+        name: 'Home',
+        component: Home,
+        title: 'Home',
         meta: { requiredAuth: true }
     },
     {
-        path: '/controle-de-clientes',
-        name: 'ControleDeClientes',
-        component: ControleDeClientes,
-        title: 'Clientes',
+        path: '/controle-de-alunos',
+        name: 'ControleDeAlunos',
+        component: ControleDeAlunos,
+        title: 'Alunos',
         meta: { requiredAuth: true }
     },
     {
-        path: '/controle-de-produtos',
-        name: 'ControleDeProdutos',
-        component: ControleDeProdutos,
-        title: 'Produtos',
+        path: '/controle-de-alunos/novo',
+        name: 'NovoAluno',
+        component: Aluno,
+        title: 'Adicionar Aluno',
         meta: { requiredAuth: true }
     },
     {
-        path: '/controle-de-produtos/novo',
-        name: 'NovoProduto',
-        component: Produto,
-        title: 'Adicionar produto',
-        meta: { requiredAuth: true }
-    },
-    {
-        path: '/controle-de-produtos/editar',
+        path: '/controle-de-alunos/editar',
         name: 'EditarProduto',
-        component: Produto,
-        title: 'Editar produto',
+        component: Aluno,
+        title: 'Editar Aluno',
         meta: { requiredAuth: true }
     },
     {

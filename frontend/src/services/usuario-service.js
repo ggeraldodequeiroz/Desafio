@@ -1,4 +1,5 @@
 import api from './api';
+
 function login(email, senha){
     return new Promise((resolve, reject) => {
         return api.post(`/login`, { email, senha } )

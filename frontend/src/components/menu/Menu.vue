@@ -1,13 +1,10 @@
 <template>
     <ul class="menu">
         <li>
-            <a @click="() => this.$router.push({path:'/'})">Dashboard</a>
+            <a @click="() => this.$router.push({path:'/'})">Home</a>
         </li>
         <li>
-            <a @click="() => this.$router.push({path:'/controle-de-produtos'})">Produtos</a>
-        </li>
-        <li>
-            <a @click="() => this.$router.push({path:'/controle-de-clientes'})">Clientes</a>
+            <a @click="() => this.$router.push({path:'/controle-de-alunos'})">Alunos</a>
         </li>
         <li>
             <a @click="logout">Sair</a>
@@ -30,13 +27,19 @@ export default {
         logout(){
             usuarioService.logout()
             .then(() =>  {
+
+                localStorage.clear();
+
                 utilsStorage.removerUsuarioNaStorage();
                 utilsStorage.removerTokenNaStorage();
 
                 this.$router.push({path:'/login'});
             })
             .catch(error => {
+                localStorage.clear();
+                console.log("Passei Aqui!!!!")
                 console.log(error);
+                this.$router.push({path:'/login'});
             })            
         }
     }
