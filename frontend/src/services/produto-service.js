@@ -26,7 +26,7 @@ function cadastrar(produto) {
 
 function atualizar(produto) {
     return new Promise((resolve, reject) => {
-        return api.put(`/produtos${produto.id}`, produto)
+        return api.put(`/produtos/${produto.id}`, produto)
         .then(response => resolve(response))
         .catch(error => reject(error));
     });

@@ -7,4 +7,5 @@ module.exports = class Produto {
         this.quantidadeEstoque = obj.quantidadeEstoque;
         this.dataCadastro = obj.dataCadastro;
     }
+    
 }

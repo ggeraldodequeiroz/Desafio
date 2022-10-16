@@ -34,8 +34,8 @@
                             <td>{{ item.valor | real}}</td>
                             <td>{{ item.dataCadastro | data }}</td>
                             <td>
-                                <i @click="editarProduto" class="fas fa-pencil-alt icones-tabela"></i>
-                                <i @click="excluirProduto" class="fas fa-trash-alt icones-tabela"></i>
+                                <i @click="editarProduto(item)" class="fas fa-pencil-alt icones-tabela"></i>
+                                <i @click="excluirProduto(item)" class="fas fa-trash-alt icones-tabela"></i>
                             </td>
                         </tr>
                     </tbody>
@@ -75,8 +75,8 @@ export default {
         adicionarProduto() {
             this.$router.push({ name: "NovoProduto" });
         },
-        editarProduto() {
-            alert('Editar produto');
+        editarProduto(produto) {
+            this.$router.push({ name: "EditarProduto", params: { id: produto.id }});
         },
         excluirProduto() {
             alert('Excluir produto');

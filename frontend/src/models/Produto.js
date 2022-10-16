@@ -10,4 +10,12 @@ export default class Produto {
         this.dataCadastro = obj.dataCadastro;
     }
 
+    modeloValidoParaCadastro(){
+        return !!this.nome;
+    }
+
+    modeloValidoParaAtualizar(){
+        return !! (this.id && this.nome)
+    }
+
 }

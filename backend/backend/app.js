@@ -50,4 +50,4 @@ app.delete('/produtos/:id', (req, res) => {
     res.json({mensagem:`Produto com id ${id} foi deletado com sucesso!`});
 });
 
-app.listen(3400, () => console.log("Api rodando na porta 3400"));
+app.listen(3500, () => console.log("Api rodando na porta 3500"));
