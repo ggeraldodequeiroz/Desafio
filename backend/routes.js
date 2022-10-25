@@ -2,8 +2,10 @@ const express = require("express");
 const routes = express.Router();
 
 const usuarioService = require('./src/service/servicoUsuario');
-const UsuarioController = require('./src/controllers/UsuarioController');
-const AlunoController = require("./src/controllers/AlunoController");
+const UsuarioController = require('./src/controllers/usuarioController');
+const AlunoController = require('./src/controllers/alunoController');
+const alunoMiddleware = require('./src/middlewares/alunoMiddleware');
+
 
 const usuarioController = new UsuarioController();
 const alunoController = new AlunoController();
@@ -26,8 +28,16 @@ routes.use(async (req, res, next) => {
 //aluno
 routes.get("/alunos", alunoController.obterTodos);
 routes.get("/alunos/:id", alunoController.obterPorId);
-routes.post('/alunos', alunoController.cadastrar);
-routes.put("/alunos/:id", alunoController.atualizar);
+routes.post('/alunos', alunoMiddleware.validateFieldRegistroAcademico, 
+                        alunoMiddleware.validateFieldNome, 
+                        alunoMiddleware.validateFieldCpf, 
+                        alunoMiddleware.validateFieldEmail, 
+                        alunoController.cadastrar);
+routes.put("/alunos/:id", alunoMiddleware.validateFieldRegistroAcademico, 
+                        alunoMiddleware.validateFieldNome, 
+                        alunoMiddleware.validateFieldCpf, 
+                        alunoMiddleware.validateFieldEmail,  
+                        alunoController.atualizar);
 routes.delete("/alunos/:id", alunoController.deletar);
 
 //usuario

@@ -1,4 +1,4 @@
-const Perfil = require('../model/Perfil');
+const Perfil = require('./perfil');
 
 module.exports = class Usuario {
     constructor(obj){

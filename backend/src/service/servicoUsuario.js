@@ -1,5 +1,5 @@
-const Usuario = require('../model/Usuario');
-const Perfil = require('../model/Perfil');
+const Usuario = require('../model/usuario');
+const Perfil = require('../model/perfil');
 const md5 = require('md5');
 
 var idAtual = 2;
