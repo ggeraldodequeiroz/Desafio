@@ -19,7 +19,7 @@ function obterPorId(id){
 function cadastrar(aluno){
     return new Promise((resolve, reject) => {
         return api.post(`/alunos`, aluno)
-        .then(response => resolve(response))
+        .then(response => resolve(response)) 
         .catch(error => reject(error));
     });
 }

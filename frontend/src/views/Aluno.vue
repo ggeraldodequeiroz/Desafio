@@ -195,7 +195,7 @@ export default {
       if (!this.aluno.modeloValidoParaAtualizar()) {
         this.$swal({
           icon: 'warning',
-          title: 'O código e nome do aluno são obrigatórios para o cadastro.',
+          title: 'O preenchimento dos campos nome, e-mail, CPF e data do cadastro são obrigatórios para realizar cadastro.',
           confirmButtonColor: '#FF3D00',
           animate: true
         });

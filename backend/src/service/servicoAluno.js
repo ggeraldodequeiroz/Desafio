@@ -10,7 +10,7 @@ async function obterTodos(){
 async function obterPorId(id){
     const query = 'SELECT * FROM alunos WHERE id = ?';
     const aluno = await connection.execute(query, [id]);
-    return aluno[0];
+    return aluno[0][0];
 }
 
 async function cadastrar(obj) {

@@ -28,6 +28,6 @@ export default class Produto {
     }
 
     modeloValidoParaAtualizar(){
-        return !! (this.id && this.nome)
+        return !! (this.nome && this.email && this.cpf && this.dataCadastro);
     }
 }
