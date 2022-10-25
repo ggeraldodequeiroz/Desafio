@@ -20,8 +20,8 @@ export default {
   @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
   :root{
-    --cor-primaria: #FF3D00;
-    --cor-secundaria: #FF6E40;
+    --cor-primaria: #1E90FF;
+    --cor-secundaria: #4169E1;
   }
 
   body {
