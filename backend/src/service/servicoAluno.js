@@ -9,7 +9,6 @@ async function obterTodos(){
 
 async function obterPorId(id){
     const query = 'SELECT * FROM alunos WHERE id = ?';
-
     const aluno = await connection.execute(query, [id]);
     return aluno[0];
 }
@@ -19,43 +18,24 @@ async function cadastrar(obj) {
     const nome = obj.nome;
     const email = obj.email;
     const cpf = obj.cpf;
-
     const dataCadastro = new Date();
     const query = 'INSERT INTO alunos(registroAcademico, nome, email, cpf, dataCadastro) VALUES (?, ?, ?, ?, ?)';
-
     const [aluno] = await connection.execute(query, [registroAcademico, nome, email, cpf, dataCadastro]);
-
     return {aluno};
 }
 
-// function cadastrar(obj){
-//     var aluno = new Aluno(obj);
-//     idAtual++;
-//     aluno.id = idAtual;
-//     listaDeAlunos.push(aluno);
-
-//     return aluno;
-// }
-
-function atualizar(aluno){
-    var indice = listaDeAlunos.findIndex(p => p.id == aluno.id);
-    
-    if(indice < 0){
-        return;
-    }
-
-    listaDeAlunos.splice(indice, 1, aluno);
-    return aluno;
+async function atualizar(aluno) {
+    const { nome, email, cpf, id } = aluno;
+    const query = 'UPDATE alunos SET nome = ?, email = ?, cpf = ?, dataCadastro = ? WHERE id = ?';
+    const dataCadastro = new Date();
+    const [alunoUpdate] = await connection.execute(query, [nome, email, cpf, dataCadastro, id]);
+    return alunoUpdate;
 }
 
-function deletar(id){
-    var indice = listaDeAlunos.findIndex(p => p.id == id);
-    if(indice < 0){
-        return;
-    }
-
-    // Deleta de dentro do array a posicição especifica
-    listaDeAlunos.splice(indice, 1);
+async function deletar(id){
+    const query = 'DELETE FROM alunos WHERE id = ?';
+    const [alunoDelete] = await connection.execute(query, [id]);
+    return alunoDelete;
 }
 
 

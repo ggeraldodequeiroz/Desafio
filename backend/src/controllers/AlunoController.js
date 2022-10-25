@@ -34,7 +34,7 @@ module.exports = class AlunoController {
 
     async cadastrar(req, res) {
         try {           
-            let aluno = await serviceAluno.cadastrar(req.body);            
+            await serviceAluno.cadastrar(req.body);            
         } catch (error) {
             console.log(error);
             if(error.code === "ER_DUP_ENTRY") {
@@ -53,24 +53,27 @@ module.exports = class AlunoController {
 
             aluno.id = parseInt(id);
 
-            let alunoAtualizado = serviceAluno.atualizar(aluno);
-            return res.json(alunoAtualizado);
+            await serviceAluno.atualizar(aluno);            
 
         } catch (error) {
             console.log(error);
             return res.json({ mensagem:error.message })
         }
+
+        return res.status(200).json({mensagem: "Aluno atualizado com sucesso."});
     }
 
     async deletar(req, res) {
         try {
             var id = req.params.id;
-            let alunoAtualizado = serviceAluno.deletar(id);
-            return res.json(alunoAtualizado);
+            var idAluno = parseInt(id);
+            await serviceAluno.deletar(idAluno);
 
         } catch (error) {
             console.log(error);
             return res.json({ mensagem:error.message })
         }
+
+        return res.status(200).json({mensagem: "Aluno deletado com sucesso."});
     }
 }

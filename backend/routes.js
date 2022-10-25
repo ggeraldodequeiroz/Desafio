@@ -33,8 +33,7 @@ routes.post('/alunos', alunoMiddleware.validateFieldRegistroAcademico,
                         alunoMiddleware.validateFieldCpf, 
                         alunoMiddleware.validateFieldEmail, 
                         alunoController.cadastrar);
-routes.put("/alunos/:id", alunoMiddleware.validateFieldRegistroAcademico, 
-                        alunoMiddleware.validateFieldNome, 
+routes.put("/alunos/:id", alunoMiddleware.validateFieldNome, 
                         alunoMiddleware.validateFieldCpf, 
                         alunoMiddleware.validateFieldEmail,  
                         alunoController.atualizar);
