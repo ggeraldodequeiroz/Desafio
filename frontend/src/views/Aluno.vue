@@ -155,7 +155,7 @@ export default {
       if (!this.aluno.validaCpf()) {
         this.$swal({
           icon: 'warning',
-          title: 'O cpf do aluno é obrigatório para o cadastro.',
+          title: 'O CPF do aluno é obrigatório para o cadastro.',
           confirmButtonColor: '#FF3D00',
           animate: true
         });

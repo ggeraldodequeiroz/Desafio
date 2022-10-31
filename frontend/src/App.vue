@@ -21,7 +21,7 @@ export default {
 
   :root{
     --cor-primaria: #1E90FF;
-    --cor-secundaria: #4169E1;
+    --cor-secundaria: #1E90FF;
   }
 
   body {
