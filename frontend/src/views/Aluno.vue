@@ -181,10 +181,10 @@ export default {
           }
         })
         .catch(error => {
-          console.log(error);
+          const messagem = error.response.data.messagem;
           this.$swal({
             icon: 'error',
-            title: 'Não foi possível cadastrar o aluno',
+            title: messagem ? message : 'Não foi possível cadastrar o aluno',
             confirmButtonColor: '#FF3D00',
             animate: true
           });
